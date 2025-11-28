@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sila Ketiga — Persatuan Indonesia (Rinci & Interaktif)</title>
+
+<!-- Font & Icon -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- GSAP + ScrollTrigger + Particles -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<style>
+:root{
+  --green: #059669;
+  --gold: #facc15;
+  --red: #ef4444;
+  --dark: #0f172a;
+  --light: #f8fafc;
+  --card-bg: rgba(255,255,255,0.92);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:'Poppins',sans-serif; background:var(--light); color:var(--dark);
+  scroll-behavior:smooth; overflow-x:hidden;
+}
+
+/* Header */
+header{
+  position:fixed; top:0; left:0; width:100%; z-index:1000;
+  background:rgba(255,255,255,0.75); backdrop-filter:blur(8px);
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;}
+.logo{font-weight:700;color:var(--green);display:flex;gap:.6rem;align-items:center;font-size:1.2rem}
+nav a{margin-left:1.2rem;color:var(--dark);text-decoration:none;font-weight:500;transition:0.2s}
+nav a:hover{color:var(--green)}
+
+/* Particles container */
+#particles-js{position:fixed;inset:0;z-index:-1;}
+
+/* Hero */
+.hero{
+  min-height:100vh; display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:2rem; background:linear-gradient(135deg,#f0fff4,#fff7ed);
+  position:relative;margin-top:70px;overflow:hidden;
+}
+.hero h1{font-size:2.8rem;color:var(--green);margin:0 0 .6rem;}
+.hero p{color:#334155;max-width:820px;margin:0 auto;font-size:1.05rem;line-height:1.6}
+.cta{margin-top:1.6rem;background:var(--gold);padding:.8rem 1.6rem;border-radius:999px;color:#111;text-decoration:none;font-weight:700;display:inline-flex;gap:.6rem;align-items:center}
+.cta:hover{transform:scale(1.04);background:#f7d46a}
+
+/* Section */
+.section{max-width:1100px;margin:3.5rem auto;padding:2rem}
+.section-title{font-size:1.8rem;color:var(--green);text-align:center;margin-bottom:1.6rem}
+.section-sub{color:#475569;text-align:center;margin-bottom:2.6rem;max-width:900px;margin-left:auto;margin-right:auto}
+
+/* Card / glass */
+.card{
+  background:var(--card-bg);border-radius:12px;padding:1.6rem;margin-bottom:1.4rem;
+  box-shadow:0 10px 30px rgba(2,6,23,0.06);backdrop-filter:blur(6px);
+  transition:transform .35s, box-shadow .35s;
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(2,6,23,0.09)}
+.card h3{margin:0;color:var(--red);display:flex;align-items:center;gap:.6rem}
+.card p{color:#334155;line-height:1.7;margin-top:.8rem}
+
+/* Details (collapsible) */
+details{background:transparent;border-radius:8px;padding:.4rem .2rem;margin-top:.8rem}
+summary{cursor:pointer;font-weight:600;outline:none;color:var(--green);display:flex;align-items:center;gap:.6rem}
+details[open] summary i{transform:rotate(90deg)}
+
+/* Quiz */
+.quiz{background:linear-gradient(120deg,#ecfccb,#fef9c3);padding:1.6rem;border-radius:12px;box-shadow:0 10px 28px rgba(2,6,23,0.06)}
+.quiz button{background:var(--green);color:white;border:0;padding:.7rem 1rem;border-radius:8px;margin:.4rem;font-weight:700;cursor:pointer}
+.quiz button:hover{transform:scale(1.03);background:#047857}
+
+/* Footer */
+footer{background:var(--green);color:white;padding:2rem 1rem;text-align:center;margin-top:2rem}
+footer a{color:var(--gold);text-decoration:none;margin:0 .4rem}
+
+/* Badge */
+.badge{display:inline-block;padding:.25rem .6rem;border-radius:999px;background:rgba(5,150,105,0.12);color:var(--green);font-weight:700;margin-left:.6rem}
+</style>
+</head>
+<body>
+
+<!-- Particle BG -->
+<div id="particles-js"></div>
+
+<!-- Header -->
+<header>
+  <nav>
+    <div class="logo"><i class="fa-solid fa-handshake"></i> Media Pancasila <span class="badge">Rinci</span></div>
+    <div>
+      <a href="#materi">Materi</a>
+      <a href="#detail">Rincian</a>
+      <a href="#hasil">Hasil</a>
+      <a href="#video">Video</a>
+      <a href="#kuis">Kuis</a>
+      <a href="#aktivitas">Aktivitas</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero" aria-labelledby="hero-title">
+  <h1 id="hero-title"><i class="fa-solid fa-flag"></i> Sila Ketiga — Persatuan Indonesia</h1>
+  <p>
+    Persatuan Indonesia adalah pilar yang mempersatukan keberagaman suku, bahasa, budaya, dan agama.
+    Halaman ini menampilkan penjelasan rinci, contoh penerapan nyata, kegiatan pembelajaran, dan alat ukur sederhana agar siswa memahami, merasakan, dan menerapkan nilai persatuan.
+  </p>
+  <a class="cta" href="#materi"><i class="fa-solid fa-book-open"></i> Mulai Pelajari</a>
+</section>
+
+<!-- Materi ringkas -->
+<section id="materi" class="section" aria-labelledby="materi-title">
+  <h2 id="materi-title" class="section-title">Ringkasan Inti</h2>
+  <p class="section-sub">Ringkasan singkat sebelum masuk ke penjelasan rinci — cocok untuk pengantar di kelas.</p>
+
+  <div class="card" data-section="ringkas">
+    <h3><i class="fa-solid fa-globe-asia"></i> Makna Inti</h3>
+    <p><strong>Persatuan</strong> berarti rasa kebersamaan yang mengutamakan kepentingan bersama di atas kepentingan golongan, menjaga keutuhan wilayah dan kehidupan bersama, serta menghormati perbedaan sebagai kekuatan, bukan penghalang.</p>
+    <details>
+      <summary><i class="fa-solid fa-chevron-right"></i> Apa yang membuat persatuan penting?</summary>
+      <div class="small">
+        Persatuan memastikan stabilitas sosial, memudahkan kerja sama dalam pembangunan, dan menumbuhkan rasa aman. Tanpa persatuan, fragmentasi sosial dapat muncul, menghambat kemajuan dan menimbulkan konflik.
+      </div>
+    </details>
+  </div>
+
+  <div class="card" data-section="nilai">
+    <h3><i class="fa-solid fa-heart"></i> Nilai-nilai Utama</h3>
+    <p>Gotong royong, solidaritas, saling menghormati, cinta tanah air, dan keadilan sosial. Nilai-nilai ini berperan sebagai pedoman perilaku sehari-hari.</p>
+
+    <details>
+      <summary><i class="fa-solid fa-chevron-right"></i> Contoh nyata di lingkungan sekolah</summary>
+      <div class="small">
+        - Bergotong royong membersihkan kelas<br>
+        - Membantu teman yang kesulitan memahami pelajaran<br>
+        - Menghormati perbedaan adat/usaha di kegiatan ekstrakurikuler
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- Penjelasan rinci -->
+<section id="detail" class="section" aria-labelledby="detail-title">
+  <h2 id="detail-title" class="section-title">Penjelasan Rinci</h2>
+  <p class="section-sub">Penjelasan lengkap mencakup landasan filosofis, konteks sejarah singkat, implikasi sosial, dan contoh penerapan konkret.</p>
+
+  <div class="card" data-aos="fade-up">
+    <h3><i class="fa-solid fa-brain"></i> 1. Landasan Filosofis</h3>
+    <p>
+      Sila Ketiga menegaskan bahwa sebuah negara multi-etnis seperti Indonesia membutuhkan landasan moral yang mengedepankan kesatuan. Filosofi ini mendorong penyaluran kepentingan melalui mekanisme kolektif yang menghormati perbedaan, sehingga menghasilkan stabilitas dan identitas nasional bersama.
+    </p>
+      <details>
+      <summary><i class="fa-solid fa-chevron-right"></i> Pertanyaan reflektif untuk siswa</summary>
+      <div class="small">
+        - Mengapa perbedaan tidak harus menjadi pemecah? <br>
+        - Bagaimana persatuan membantu penyelesaian masalah bersama?
+      </div>
+    </details>
+  </div>
+  </div>
+
+  <div class="card" data-aos="fade-up">
+    <h3><i class="fa-solid fa-clock"></i> 2. Konteks Sejarah Singkat</h3>
+    <p>
+      Persatuan Indonesia tumbuh melalui proses sejarah melawan kolonialisme dan membangun kesepakatan bernegara pasca-proklamasi. Rasa persatuan diuji berkali-kali, namun tetap menjadi pondasi untuk mewujudkan tujuan nasional dan mempertahankan kedaulatan.
+    </p>
+        <details>
+      <summary><i class="fa-solid fa-chevron-right"></i> Dampak sejarah terhadap pemahaman persatuan</summary>
+      <div class="small">
+        Pemahaman persatuan berkembang dari pengalaman kolektif masa lalu—misalnya pengorbanan bersama dalam perjuangan kemerdekaan—yang kemudian menjadi narasi pemersatu dalam pendidikan kewarganegaraan.
+      </div>
+    </details>
+  </div>
+
+  </div>
+
+  <div class="card" data-aos="fade-up">
+    <h3><i class="fa-solid fa-people-group"></i> 3. Implikasi Sosial & Praktis</h3>
+    <p>
+      Persatuan mendorong kolaborasi lintas kelompok dalam pembangunan ekonomi, menjaga keamanan, serta menciptakan ruang dialog ketika konflik muncul. Secara praktis, ini berarti memprioritaskan kepentingan umum, kompromi, dan penyelesaian konflik secara damai.
+    </p>
+    <details>
+      <summary><i class="fa-solid fa-chevron-right"></i> Implikasi pada kebijakan publik</summary>
+      <div class="small">
+        Kebijakan yang inklusif, pendidikan multikultural, dan program-program pembangunan yang merata memperkuat persatuan di level struktural.
+      </div>
+    </details>
+  </div>
+  </div>
+
+  <div class="card" data-aos="fade-up">
+    <h3><i class="fa-solid fa-lightbulb"></i> 4. Contoh Penerapan Konkret (Sekolah & Komunitas)</h3>
+    <p>
+      - Program buddy system (teman belajar antar kelas/asal daerah).<br>
+      - Kegiatan lintas budaya (pameran tarian, kuliner daerah).<br>
+      - Proyek layanan masyarakat bersama (kerja bakti, penghijauan).
+    </p>
+      <details>
+      <summary><i class="fa-solid fa-chevron-right"></i> Langkah langkah sederhana guru</summary>
+      <div class="small">
+        1. Buat kelompok heterogen untuk proyek kelas.<br>
+        2. Beri tugas yang membutuhkan kolaborasi dan peran berbeda.<br>
+        3. Jadwalkan sesi diskusi reflektif pasca-kegiatan.
+      </div>
+    </details>
+  </div>
+  </div>
+</section>
+
+<!-- Hasil yang diharapkan -->
+<section id="hasil" class="section" aria-labelledby="hasil-title">
+  <h2 id="hasil-title" class="section-title">Hasil yang Diharapkan</h2>
+  <p class="section-sub">
+    Media ini diharapkan dapat menumbuhkan rasa bangga sebagai bangsa Indonesia yang kaya akan budaya serta mendorong sikap menjaga kerukunan dan gotong royong lintas suku/daerah, karena semua sadar bahwa kita adalah bagian dari kesatuan yang sama.
+  </p>
+  <div class="card">
+    <p>
+      Media ini mengimplementasikan nilai Persatuan Indonesia dengan menunjukkan bahwa keragaman tidak dihilangkan, melainkan dirangkul dan dijadikan kekuatan untuk bersatu. 
+      Hal ini akan mendorong seseorang untuk mengutamakan kepentingan bangsa di atas kepentingan pribadi atau kelompok.
+    </p>
+  </div>
+</section>
+
+<!-- Video Pembelajaran -->
+<section id="video" class="section" aria-labelledby="video-title">
+  <h2 id="video-title" class="section-title">Video Pembelajaran</h2>
+  <p class="section-sub">
+    Tonton video pembelajaran berikut untuk memahami lebih dalam makna dan penerapan nilai-nilai Sila Ketiga — Persatuan Indonesia.
+  </p>
+
+  <div class="card" style="text-align:center;">
+    <h3><i class="fa-solid fa-play-circle"></i> Materi: Persatuan dalam Keberagaman</h3>
+    <p>Video ini menjelaskan bagaimana semangat persatuan menjadi kekuatan bangsa Indonesia dalam menghadapi keberagaman budaya, suku, dan agama.</p>
+    
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin-top:1rem;box-shadow:0 8px 24px rgba(2,6,23,0.15);">
+      <iframe src="https://www.youtube.com/embed/4kEo1l6bK9w" 
+        title="Video Pembelajaran Sila Ketiga - Persatuan Indonesia"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Kuis -->
+<section id="kuis" class="section" aria-labelledby="kuis-title">
+  <h2 id="kuis-title" class="section-title">Kuis Interaktif</h2>
+  <p class="section-sub">Kuis singkat untuk mengecek pemahaman dasar — cocok untuk pemanasan pembelajaran.</p>
+
+  <div class="card quiz" role="region" aria-label="Kuis Persatuan">
+    <p style="font-weight:700">Pertanyaan 1: Manakah tindakan yang paling mencerminkan persatuan?</p>
+    <div style="margin-top:.8rem">
+      <button onclick="giveFeedback(this,false)">A. Mengucilkan teman berbeda pendapat</button>
+      <button onclick="giveFeedback(this,true)">B. Bergotong royong membersihkan lingkungan</button>
+      <button onclick="giveFeedback(this,false)">C. Menolak bekerja sama</button>
+      <button onclick="giveFeedback(this,false)">D. Mengolok-olok budaya lain</button>
+    </div>
+    <p id="quiz-feedback" style="margin-top:12px;font-weight:700"></p>
+  </div>
+</section>
+
+<!-- Aktivitas -->
+<section id="aktivitas" class="section" aria-labelledby="aktivitas-title">
+  <h2 id="aktivitas-title" class="section-title">Aktivitas & Informasi Kelompok</h2>
+  <p class="section-sub">Informasi mengenai tim pelaksana dan dosen pengampu kegiatan pembelajaran ini.</p>
+
+  <div class="card" data-aos="fade-up">
+    <h3><i class="fa-solid fa-users"></i> Kelompok 5</h3>
+    <p>
+      Kelompok 5 berperan dalam pengembangan media pembelajaran interaktif bertema
+      <strong>Sila Ketiga — Persatuan Indonesia</strong> sebagai bagian dari tugas mata kuliah Pancasila.
+    </p>
+    <details>
+      <summary><i class="fa-solid fa-chevron-right"></i> Anggota Kelompok</summary>
+      <div class="small">
+        1. [Khaerul Rizqi]<br>
+        2. [Muhammad Fahrudin Yusuf]<br>
+        3. [Dwi Tazqiyatul A]<br>
+        4. [Wulandari]<br>
+        5. [Syakiro Sarof]
+      </div>
+    </details>
+  </div>
+
+  <div class="card" data-aos="fade-up">
+    <h3><i class="fa-solid fa-chalkboard-user"></i> Dosen Pengampu</h3>
+    <p>
+      <strong>Dosen Pengampu:</strong> [Taufiqurrahman, M.Pd]<br>
+      <span class="small">Memberikan arahan akademik, evaluasi, serta bimbingan dalam penyusunan dan penyajian media pembelajaran digital ini.</span>
+    </p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Media Pembelajaran Pancasila — Panduan Rinci</p>
+  <p><a href="#"><i class="fa-brands fa-youtube"></i> YouTube</a> • <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></p>
+</footer>
+<!-- Tambahkan ini di akhir sebelum tag </body> -->
+<script>
+// Particles tetap sama seperti semula
+particlesJS("particles-js", {
+  particles: {
+    number: {value:60},
+    color: {value:["#059669","#facc15","#ef4444"]},
+    shape: {type:"circle"},
+    opacity: {value:0.6},
+    size: {value:3},
+    line_linked: {enable:true,color:"#999",opacity:0.2},
+    move: {enable:true,speed:1.8}
+  },
+  interactivity: {events:{onhover:{enable:true,mode:"repulse"}}},
+  retina_detect:true
+});
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Animasi Hero
+gsap.from(".hero h1", {y:60, opacity:0, duration:1, ease:"power3.out"});
+gsap.from(".hero p", {y:30, opacity:0, duration:1, delay:0.3, ease:"power3.out"});
+gsap.from(".cta", {scale:0.9, opacity:0, duration:0.8, delay:0.8, ease:"back.out(1.7)"});
+
+// Animasi setiap card ketika discroll
+gsap.utils.toArray(".card").forEach((card, i)=>{
+  gsap.from(card, {
+    scrollTrigger:{
+      trigger:card,
+      start:"top 85%",
+      toggleActions:"play none none reverse"
+    },
+    y:60,
+    opacity:0,
+    duration:0.9,
+    delay:i * 0.1,
+    ease:"power2.out"
+  });
+});
+
+// Efek Parallax ringan untuk background hero
+gsap.to(".hero", {
+  scrollTrigger:{
+    trigger:".hero",
+    start:"top top",
+    scrub:true
+  },
+  backgroundPositionY:"40%",
+  ease:"none"
+});
+
+// Animasi judul section muncul dari bawah
+gsap.utils.toArray(".section-title").forEach(title=>{
+  gsap.from(title,{
+    scrollTrigger:{
+      trigger:title,
+      start:"top 90%",
+      toggleActions:"play none none reverse"
+    },
+    y:40,
+    opacity:0,
+    duration:0.8,
+    ease:"power2.out"
+  });
+});
+
+// Animasi paragraf penjelasan section (fade-in)
+gsap.utils.toArray(".section-sub").forEach(sub=>{
+  gsap.from(sub,{
+    scrollTrigger:{
+      trigger:sub,
+      start:"top 95%",
+      toggleActions:"play none none reverse"
+    },
+    opacity:0,
+    y:30,
+    duration:1,
+    ease:"power2.out"
+  });
+});
+
+// Animasi footer muncul halus dari bawah
+gsap.from("footer", {
+  scrollTrigger:{
+    trigger:"footer",
+    start:"top 95%"
+  },
+  y:40,
+  opacity:0,
+  duration:1.2,
+  ease:"power2.out"
+});
+
+// Animasi ikon di header sedikit berputar saat load
+gsap.from(".logo i", {rotation:-180, opacity:0, duration:1, ease:"back.out(1.7)"});
+
+// Efek hover ringan pada tombol kuis (pulse anim)
+document.querySelectorAll(".quiz button").forEach(btn=>{
+  btn.addEventListener("mouseenter", ()=>{
+    gsap.to(btn,{scale:1.07,duration:0.2});
+  });
+  btn.addEventListener("mouseleave", ()=>{
+    gsap.to(btn,{scale:1,duration:0.2});
+  });
+});
+</script>
+
+<!-- Scripts -->
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: {value:60},
+    color: {value:["#059669","#facc15","#ef4444"]},
+    shape: {type:"circle"},
+    opacity: {value:0.6},
+    size: {value:3},
+    line_linked: {enable:true,color:"#999",opacity:0.2},
+    move: {enable:true,speed:1.8}
+  },
+  interactivity: {events:{onhover:{enable:true,mode:"repulse"}}},
+  retina_detect:true
+});
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.from(".hero h1",{y:60,opacity:0,duration:1});
+gsap.from(".hero p",{y:30,opacity:0,duration:1,delay:.3});
+gsap.from(".cta",{scale:.85,opacity:0,duration:.7,delay:.8});
+gsap.utils.toArray(".card").forEach(card=>{
+  gsap.from(card,{y:40,opacity:0,duration:0.9,ease:"power
