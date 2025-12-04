@@ -166,7 +166,6 @@ footer a{color:var(--gold);text-decoration:none;margin:0 .4rem}
       </div>
     </details>
   </div>
-  </div>
 
   <div class="card" data-aos="fade-up">
     <h3><i class="fa-solid fa-clock"></i> 2. Konteks Sejarah Singkat</h3>
@@ -181,8 +180,6 @@ footer a{color:var(--gold);text-decoration:none;margin:0 .4rem}
     </details>
   </div>
 
-  </div>
-
   <div class="card" data-aos="fade-up">
     <h3><i class="fa-solid fa-people-group"></i> 3. Implikasi Sosial & Praktis</h3>
     <p>
@@ -194,7 +191,6 @@ footer a{color:var(--gold);text-decoration:none;margin:0 .4rem}
         Kebijakan yang inklusif, pendidikan multikultural, dan program-program pembangunan yang merata memperkuat persatuan di level struktural.
       </div>
     </details>
-  </div>
   </div>
 
   <div class="card" data-aos="fade-up">
@@ -212,7 +208,6 @@ footer a{color:var(--gold);text-decoration:none;margin:0 .4rem}
         3. Jadwalkan sesi diskusi reflektif pasca-kegiatan.
       </div>
     </details>
-  </div>
   </div>
 </section>
 
@@ -276,18 +271,21 @@ footer a{color:var(--gold);text-decoration:none;margin:0 .4rem}
       <strong>Sila Ketiga — Persatuan Indonesia</strong> sebagai bagian dari tugas mata kuliah Pancasila.
     </p>
     <details>
-      <summary><i class="fa-solid fa-chevron-right"></i> Anggota Kelompok</summary>
-      <div class="small">
-        1. Khaerul Rizqi<br>
-            NIM:B0225217<br>
-        2. Muhammad Fahrudin Yusuf<br>
-            NIM:B0225197<br>
-        3. Dwi Tazqiyatul A<br>
-            NIM:B0225231<br>
-        4. Wulandari<br>
-            NIM:B0225235<br>
-        5. Syakiro Sarof
-            NIM:B0225236<br>
+    <summary><i class="fa-solid fa-chevron-right"></i> Anggota Kelompok</summary>
+    <div class="small">
+    1. Khaerul Rizqi<br>
+    NIM:B0225217<br>
+    2. Muhammad Fahrudin Yusuf<br>
+    NIM:B0225197<br>
+    3. Dwi Tazqiyatul A<br>
+    NIM:B0225231<br>
+    4. Wulandari<br>
+    NIM:B0225235<br>
+    5. Syakiro Sarof<br>
+    NIM:B0225236<br>
+    </div>
+    </details>
+      
         
       </div>
     </details>
@@ -412,27 +410,20 @@ document.querySelectorAll(".quiz button").forEach(btn=>{
     gsap.to(btn,{scale:1,duration:0.2});
   });
 });
+
+// Quiz feedback function (tidak mengubah struktur kuis)
+function giveFeedback(btn, correct){
+  const fb = document.getElementById('quiz-feedback');
+  if(!fb) return;
+  if(correct){
+    fb.textContent = '✔️ Benar! Itu adalah contoh persatuan.';
+    fb.style.color = 'green';
+  } else {
+    fb.textContent = '❌ Salah. Coba lagi.';
+    fb.style.color = 'red';
+  }
+}
 </script>
 
-<!-- Scripts -->
-<script>
-particlesJS("particles-js", {
-  particles: {
-    number: {value:60},
-    color: {value:["#059669","#facc15","#ef4444"]},
-    shape: {type:"circle"},
-    opacity: {value:0.6},
-    size: {value:3},
-    line_linked: {enable:true,color:"#999",opacity:0.2},
-    move: {enable:true,speed:1.8}
-  },
-  interactivity: {events:{onhover:{enable:true,mode:"repulse"}}},
-  retina_detect:true
-});
-
-gsap.registerPlugin(ScrollTrigger);
-gsap.from(".hero h1",{y:60,opacity:0,duration:1});
-gsap.from(".hero p",{y:30,opacity:0,duration:1,delay:.3});
-gsap.from(".cta",{scale:.85,opacity:0,duration:.7,delay:.8});
-gsap.utils.toArray(".card").forEach(card=>{
-  gsap.from(card,{y:40,opacity:0,duration:0.9,ease:"power
+</body>
+  </html>
