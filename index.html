@@ -69,7 +69,7 @@ nav a:hover{color:var(--green)}
 .card h3{margin:0;color:var(--red);display:flex;align-items:center;gap:.6rem}
 .card p{color:#334155;line-height:1.7;margin-top:.8rem}
 
-/* Details (collapsible) */
+/* Details */
 details{background:transparent;border-radius:8px;padding:.4rem .2rem;margin-top:.8rem}
 summary{cursor:pointer;font-weight:600;outline:none;color:var(--green);display:flex;align-items:center;gap:.6rem}
 details[open] summary i{transform:rotate(90deg)}
@@ -264,32 +264,29 @@ footer a{color:var(--gold);text-decoration:none;margin:0 .4rem}
   <h2 id="aktivitas-title" class="section-title">Aktivitas & Informasi Kelompok</h2>
   <p class="section-sub">Informasi mengenai tim pelaksana dan dosen pengampu kegiatan pembelajaran ini.</p>
 
-  <div class="card" data-aos="fade-up">
-    <h3><i class="fa-solid fa-users"></i> Kelompok 5</h3>
-    <p>
-      Kelompok 5 berperan dalam pengembangan media pembelajaran interaktif bertema
-      <strong>Sila Ketiga — Persatuan Indonesia</strong> sebagai bagian dari tugas mata kuliah Pancasila.
-    </p>
-    <details>
+<div class="card" data-aos="fade-up">
+  <h3><i class="fa-solid fa-users"></i> Kelompok 5</h3>
+  <p>
+    Kelompok 5 berperan dalam pengembangan media pembelajaran interaktif bertema
+    <strong>Sila Ketiga — Persatuan Indonesia</strong> sebagai bagian dari tugas mata kuliah Pancasila.
+  </p>
+
+  <details>
     <summary><i class="fa-solid fa-chevron-right"></i> Anggota Kelompok</summary>
     <div class="small">
-    1. Khaerul Rizqi<br>
-    NIM:B0225217<br>
-    2. Muhammad Fahrudin Yusuf<br>
-    NIM:B0225197<br>
-    3. Dwi Tazqiyatul A<br>
-    NIM:B0225231<br>
-    4. Wulandari<br>
-    NIM:B0225235<br>
-    5. Syakiro Sarof<br>
-    NIM:B0225236<br>
+      1. Khaerul Rizqi<br>
+      NIM:B0225217<br>
+      2. Muhammad Fahrudin Yusuf<br>
+      NIM:B0225197<br>
+      3. Dwi Tazqiyatul A<br>
+      NIM:B0225231<br>
+      4. Wulandari<br>
+      NIM:B0225235<br>
+      5. Syakiro Sarof<br>
+      NIM:B0225236<br>
     </div>
-    </details>
-      
-        
-      </div>
-    </details>
-  </div>
+  </details>
+</div>
 
   <div class="card" data-aos="fade-up">
     <h3><i class="fa-solid fa-chalkboard-user"></i> Dosen Pengampu</h3>
@@ -303,11 +300,25 @@ footer a{color:var(--gold);text-decoration:none;margin:0 .4rem}
 <!-- Footer -->
 <footer>
   <p>© 2025 Media Pembelajaran Pancasila — Panduan Rinci</p>
-  <p><a href="#"><i class="fa-brands fa-youtube"></i> YouTube</a> • <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></p>
+
+  <!-- ✔ Instagram langsung buka aplikasi + fallback ke browser -->
+  <p>
+    <a href="https://youtube.com" target="_blank">
+      <i class="fa-brands fa-youtube"></i> YouTube
+    </a> • 
+    <a 
+      href="instagram://kyynihhhh=mediapancasila"
+      onclick="setTimeout(()=>{ window.location='https://instagram.com/kyynihhhh'; }, 700)"
+    >
+      <i class="fa-brands fa-instagram"></i> Instagram
+    </a>
+  </p>
 </footer>
-<!-- Tambahkan ini di akhir sebelum tag </body> -->
+
+
+<!-- Javascript -->
 <script>
-// Particles tetap sama seperti semula
+// Particles
 particlesJS("particles-js", {
   particles: {
     number: {value:60},
@@ -324,12 +335,12 @@ particlesJS("particles-js", {
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Animasi Hero
+// Hero Anim
 gsap.from(".hero h1", {y:60, opacity:0, duration:1, ease:"power3.out"});
 gsap.from(".hero p", {y:30, opacity:0, duration:1, delay:0.3, ease:"power3.out"});
 gsap.from(".cta", {scale:0.9, opacity:0, duration:0.8, delay:0.8, ease:"back.out(1.7)"});
 
-// Animasi setiap card ketika discroll
+// Card Anim
 gsap.utils.toArray(".card").forEach((card, i)=>{
   gsap.from(card, {
     scrollTrigger:{
@@ -345,7 +356,7 @@ gsap.utils.toArray(".card").forEach((card, i)=>{
   });
 });
 
-// Efek Parallax ringan untuk background hero
+// Parallax Hero
 gsap.to(".hero", {
   scrollTrigger:{
     trigger:".hero",
@@ -356,7 +367,7 @@ gsap.to(".hero", {
   ease:"none"
 });
 
-// Animasi judul section muncul dari bawah
+// Section Titles Anim
 gsap.utils.toArray(".section-title").forEach(title=>{
   gsap.from(title,{
     scrollTrigger:{
@@ -371,7 +382,7 @@ gsap.utils.toArray(".section-title").forEach(title=>{
   });
 });
 
-// Animasi paragraf penjelasan section (fade-in)
+// Section Subtitle Anim
 gsap.utils.toArray(".section-sub").forEach(sub=>{
   gsap.from(sub,{
     scrollTrigger:{
@@ -386,7 +397,7 @@ gsap.utils.toArray(".section-sub").forEach(sub=>{
   });
 });
 
-// Animasi footer muncul halus dari bawah
+// Footer anim
 gsap.from("footer", {
   scrollTrigger:{
     trigger:"footer",
@@ -398,10 +409,10 @@ gsap.from("footer", {
   ease:"power2.out"
 });
 
-// Animasi ikon di header sedikit berputar saat load
+// Header icon anim
 gsap.from(".logo i", {rotation:-180, opacity:0, duration:1, ease:"back.out(1.7)"});
 
-// Efek hover ringan pada tombol kuis (pulse anim)
+// Quiz hover anim
 document.querySelectorAll(".quiz button").forEach(btn=>{
   btn.addEventListener("mouseenter", ()=>{
     gsap.to(btn,{scale:1.07,duration:0.2});
@@ -411,7 +422,7 @@ document.querySelectorAll(".quiz button").forEach(btn=>{
   });
 });
 
-// Quiz feedback function (tidak mengubah struktur kuis)
+// Quiz feedback
 function giveFeedback(btn, correct){
   const fb = document.getElementById('quiz-feedback');
   if(!fb) return;
@@ -426,4 +437,4 @@ function giveFeedback(btn, correct){
 </script>
 
 </body>
-  </html>
+</html
